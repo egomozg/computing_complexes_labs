@@ -35,7 +35,7 @@ class ProtectiveEquipment():
         return self.__current
     
     def set_short_circuit(self):
-        return self.set_current(short_circuit.ShortCircuit(150).get_current())
+        return self.set_current(short_circuit.ShortCircuit().get_current())
     
     def signal_on_switch(self):
         logging.info("Произошло короткое замыкание на " + self.__where)
