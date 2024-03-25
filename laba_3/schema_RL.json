@@ -1,0 +1,23 @@
+{
+    "time_of_modeling": 0.05,
+    "step": 50e-6,
+    "elems": [
+        {
+            "type": "E",
+            "Volt": 10,
+            "Impedance": 5,
+            "node_start": 1,
+            "node_end": 2,
+            "number_of_branch": 1
+
+        },
+        {
+            "type": "L",
+            "Inductance": 8e-3,
+            "Current": 0,
+            "node_start": 2,
+            "node_end": 1,
+            "number_of_branch": 2
+        }
+    ]
+}
