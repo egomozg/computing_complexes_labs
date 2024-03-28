@@ -2,6 +2,7 @@ from Elems import R
 from Elems import EDS
 from Elems import C
 from Elems import L
+from Elems import J
 
 class Fabric():
 
@@ -15,6 +16,8 @@ class Fabric():
                 return Fabric.C(elem, h)
             case 'L':
                 return Fabric.L(elem, h)
+            case 'J':
+                return Fabric.J(elem, h)
 
     def R(elem, h):
         return R.Resistance(elem, h)
@@ -27,3 +30,7 @@ class Fabric():
 
     def L(elem, h):
         return L.L(elem, h)
+
+    def J(elem, h):
+        return J.J(elem, h)
+
