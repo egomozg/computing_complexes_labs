@@ -3,7 +3,7 @@ from Fabric import Fabric
 import numpy as np
 import matplotlib.pyplot as plt
 
-with open('schema_RLC.json') as param: # открываем json файл 
+with open('schema_RL.json') as param: # открываем json файл 
     templates = json.load(param)  # и достаем от туда все
 
 time_of_modeling = templates['time_of_modeling'] #как словарь
