@@ -1,0 +1,37 @@
+{
+    "time_of_modeling": 0.05,
+    "step": 50e-8,
+    "elems": [
+        {
+            "type": "E",
+            "Volt": 10,
+            "Impedance": 1,
+            "node_start": 1,
+            "node_end": 3,
+            "number_of_branch": 1
+
+        },
+        {
+            "type": "R",
+            "Impedance": 10,
+            "node_start":1,
+            "node_end": 2,
+            "number_of_branch": 2
+        },
+        {
+            "type": "R",
+            "Impedance": 10,
+            "node_start":2,
+            "node_end": 3,
+            "number_of_branch": 3
+        },
+        {
+            "type": "J",
+            "Current": 2,
+            "Impedance": 1e9,
+            "node_start": 1,
+            "node_end": 2,
+            "number_of_branch": 4
+        }
+    ]
+}
