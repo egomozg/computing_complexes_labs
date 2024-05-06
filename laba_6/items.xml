@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<equipments>
+	<powersystem name="sys1" out="trans1" in="">
+		<s_kz>80</s_kz>
+		<u_rated>220</u_rated>
+	</powersystem>
+	<transformer name="trans1" out="tl1" in="sys1">
+		<u_kz>11</u_kz>
+		<p_kz>660</p_kz>
+		<ratio>2</ratio>
+		<s_rated>200</s_rated>
+		<u_rated>220</u_rated>
+	</transformer>
+	<transmission_line name="tl1" out="trans2" in="trans1">
+		<l>50</l>
+		<r_per_km>0.244</r_per_km>
+		<x_per_km>0.427</x_per_km>
+	</transmission_line>
+	<transformer name="trans2" out="" in="tl1">
+		<u_kz>10.5</u_kz>
+		<p_kz>120</p_kz>
+		<ratio>11</ratio>
+		<s_rated>32</s_rated>
+		<u_rated>110</u_rated>
+	</transformer>
+</equipments>
+
