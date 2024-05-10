@@ -4,9 +4,6 @@ import random
 from paho.mqtt import client as mqtt_client
 import matplotlib.pyplot as plt
 
-y_mqtt_global = []
-t_mqtt_global = []
-
 broker = 'broker.emqx.io'
 port = 1883
 topic = "iot-data"
@@ -24,14 +21,14 @@ def connect_mqtt() -> mqtt_client:
     return client
 
 
-def subscribe(client: mqtt_client):
+def subscribe(client: mqtt_client, t, y):
     def on_message(client, userdata, message):
         #print(f"Received message from `{message.topic}` topic")
         try:
-            global y_mqtt_global, t_mqtt_global
+            #global y_mqtt_global, t_mqtt_global
             payload = json.loads(message.payload)
-            t_mqtt_global.append(payload["t_csv"])
-            y_mqtt_global.append(payload["y_csv"])
+            t.append(payload["t_csv"])
+            y.append(payload["y_csv"])
             print(f"Received `{payload}` from `{message.topic}` topic")
         except Exception as e:
             print(f"Error processing message: {e}")
@@ -42,12 +39,14 @@ def subscribe(client: mqtt_client):
 
 def run():
     client = connect_mqtt()
-    subscribe(client)
+    y_mqtt = []
+    t_mqtt = []
+    subscribe(client, t_mqtt, y_mqtt)
     client.loop_start()
     time.sleep(35)
     client.loop_stop()
     fig, ax = plt.subplots()
-    ax.plot(t_mqtt_global, y_mqtt_global)
+    ax.plot(t_mqtt, y_mqtt)
     ax.set_title("subscriber graph")
     ax.set(xlabel='t, c', ylabel='y(t)')
     ax.grid(which='major', color='black')
